@@ -1,0 +1,14 @@
+{
+	"name": "block-pattern-creator",
+	"version": "1.0.0",
+	"description": "Create block patterns on the frontend of a site",
+	"author": "The WordPress Meta Team",
+	"license": "GPL-2.0-or-later",
+	"scripts": {
+		"wp-env": "wp-env"
+	},
+	"dependencies": {
+		"@wordpress/env": "^2.0.1",
+		"@wordpress/scripts": "^12.2.1"
+	}
+}
