@@ -18,6 +18,10 @@ namespace Block_Plugin_Creator;
  * @throws WP_Error If the build files don't exist.
  */
 function init() {
+	if ( is_admin() ) {
+		return;
+	}
+
 	$dir = dirname( __FILE__ );
 
 	$script_asset_path = "$dir/build/index.asset.php";
