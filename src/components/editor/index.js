@@ -13,6 +13,7 @@ export default function Editor() {
 					<BlockList />
 				</ObserveTyping>
 			</WritingFlow>
+			<Popover.Slot />
 		</div>
 	);
 }
