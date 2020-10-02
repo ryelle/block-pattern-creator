@@ -14,8 +14,6 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-<h1><?php esc_html_e( 'Block Pattern Creator', 'wordpressorg' ); ?></h1>
-
 <div id="block-pattern-creator"></div>
 
 <?php wp_footer(); ?>

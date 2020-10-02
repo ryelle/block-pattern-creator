@@ -2,17 +2,18 @@
  * Internal dependencies
  */
 import Editor from '../editor';
+import Header from '../header';
 import Provider from '../provider';
 
-export default function Layout( { blockEditorSettings } ) {
+export default function Layout( { settings, postId } ) {
+	const [ patternId, setPatternId ] = useState( postId );
 	return (
-		<div className="editor-styles-wrapper">
-			<Provider blockEditorSettings={ blockEditorSettings }>
-				<header>
-					<h1>{ 'Test' }</h1>
-				</header>
-				<Editor />
-			</Provider>
-		</div>
+		<Provider
+			patternId={ patternId }
+			blockEditorSettings={ blockEditorSettings }
+		>
+			<Header />
+			<Editor />
+		</Provider>
 	);
 }
