@@ -8,9 +8,13 @@ import { createRegistrySelector } from '@wordpress/data';
  */
 import { KIND, POST_TYPE } from './utils';
 
-export const isSavingBlockPattern = createRegistrySelector(
+export function getEditingBlockPatternId( state ) {
+	return state.currentPatternId;
+}
+
+export const hasEditsBlockPattern = createRegistrySelector(
 	( select ) => ( state, patternId ) => {
-		return select( 'core' ).isSavingEntityRecord(
+		return select( 'core' ).hasEditsForEntityRecord(
 			KIND,
 			POST_TYPE,
 			patternId
@@ -18,6 +22,14 @@ export const isSavingBlockPattern = createRegistrySelector(
 	}
 );
 
-export function getEditingBlockPatternId( state ) {
-	return state.currentPatternId;
-}
+export const isSavingBlockPattern = createRegistrySelector(
+	( select ) => ( state, patternId ) => {
+		const isSaving = select( 'core' ).isSavingEntityRecord(
+			KIND,
+			POST_TYPE,
+			patternId
+		);
+
+		return isSaving;
+	}
+);
