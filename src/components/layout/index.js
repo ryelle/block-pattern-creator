@@ -10,6 +10,7 @@ import Editor from '../editor';
 import Header from '../header';
 import Inspector from '../inspector';
 import Provider from '../provider';
+import './style.css';
 
 export default function Layout( { settings, postId } ) {
 	const [ patternId ] = useState( postId );
@@ -24,7 +25,7 @@ export default function Layout( { settings, postId } ) {
 				<Header
 					onOpenInspector={ () => setIsInspectorOpened( true ) }
 				/>
-			<Editor />
+				<Editor />
 				{ isInspectorOpened && (
 					<Inspector
 						onClose={ () => setIsInspectorOpened( false ) }

@@ -10,7 +10,7 @@ import '@wordpress/format-library';
  */
 import Layout from './components/layout';
 import './store';
-import './style.scss';
+import './style.css';
 
 registerCoreBlocks();
 

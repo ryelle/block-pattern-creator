@@ -27,20 +27,18 @@ export default function Provider( {
 	}, [ patternId ] );
 
 	return (
-		<div className="editor-styles-wrapper">
-			<SlotFillProvider>
-				<DropZoneProvider>
-					<FocusReturnProvider>
-						<BlockEditorProvider
-							value={ blocks }
-							onInput={ onInput }
-							onChange={ onChange }
-							settings={ blockEditorSettings }
-							{ ...props }
-						/>
-					</FocusReturnProvider>
-				</DropZoneProvider>
-			</SlotFillProvider>
-		</div>
+		<SlotFillProvider>
+			<DropZoneProvider>
+				<FocusReturnProvider>
+					<BlockEditorProvider
+						value={ blocks }
+						onInput={ onInput }
+						onChange={ onChange }
+						settings={ blockEditorSettings }
+						{ ...props }
+					/>
+				</FocusReturnProvider>
+			</DropZoneProvider>
+		</SlotFillProvider>
 	);
 }

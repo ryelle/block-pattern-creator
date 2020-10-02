@@ -9,7 +9,7 @@ import { cog } from '@wordpress/icons';
  * Internal dependencies
  */
 import SaveButton from './save-button';
-import './style.scss';
+import './style.css';
 
 export default function Header( { onOpenInspector } ) {
 	return (

@@ -6,7 +6,7 @@ import { Popover } from '@wordpress/components';
 
 export default function Editor() {
 	return (
-		<div className="editor-styles-wrapper">
+		<div className="block-pattern-creator__editor editor-styles-wrapper">
 			<Popover.Slot name="block-toolbar" />
 			<WritingFlow>
 				<ObserveTyping>
