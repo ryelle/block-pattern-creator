@@ -1,6 +1,6 @@
 {
 	"plugins": [
 		".",
-		"../../../Sites/wpdevelop/www/wordpress-trunk/public_html/build/wp-content/plugins/gutenberg"
+		"../gutenberg"
 	]
 }
