@@ -74,6 +74,9 @@ function init() {
 	);
 
 	wp_enqueue_style( 'block-pattern-creator-style' );
+
+	// @todo this will need to be adapted to whatever theme we use for wp.org
+	remove_action( 'wp_enqueue_scripts', 'twentytwenty_register_styles' );
 }
 add_action( 'init', __NAMESPACE__ . '\init' );
 
