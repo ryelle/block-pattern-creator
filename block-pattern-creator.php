@@ -40,16 +40,11 @@ function init() {
 
 	wp_set_script_translations( 'block-pattern-creator-script', 'block-pattern-creator' );
 
+	$merged = gutenberg_experimental_global_styles_get_merged_origins();
 	$settings = array(
 		'isRTL' => is_rtl(),
-		'__experimentalFeatures' => array(
-			'global' => array(
-				'typography' => array(
-					// Needed to avoid error in useFontSize.
-					'fontSizes' => array(),
-				),
-			),
-		),
+		'__experimentalFeatures' => gutenberg_experimental_global_styles_get_editor_settings( $merged ),
+		'__experimentalGlobalStylesBaseStyles' => gutenberg_experimental_global_styles_get_core(),
 	);
 	wp_add_inline_script(
 		'block-pattern-creator-script',
