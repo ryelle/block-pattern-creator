@@ -8,11 +8,15 @@ import { registerCoreBlocks } from '@wordpress/block-library';
  * Internal dependencies
  */
 import Layout from './components/layout';
+import './store';
 import './style.scss';
 
 registerCoreBlocks();
 
 render(
-	<Layout blockEditorSettings={ bpcSettings } />,
+	<Layout
+		settings={ wporgBlockPattern.settings }
+		postId={ wporgBlockPattern.postId }
+	/>,
 	document.getElementById( 'block-pattern-creator' )
 );

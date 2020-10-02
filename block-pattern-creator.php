@@ -52,8 +52,9 @@ function init() {
 	wp_add_inline_script(
 		'block-pattern-creator-script',
 		sprintf(
-			'const bpcSettings = %s',
-			wp_json_encode( $settings )
+			'const wporgBlockPattern = {"settings": %1$s, "postId": %2$s}',
+			wp_json_encode( $settings ),
+			wp_json_encode( 5 )
 		),
 		'before'
 	);

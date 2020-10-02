@@ -7,14 +7,24 @@ import {
 	FocusReturnProvider,
 	SlotFillProvider,
 } from '@wordpress/components';
+import { useDispatch } from '@wordpress/data';
+import { useEffect } from '@wordpress/element';
 import { useEntityBlockEditor } from '@wordpress/core-data';
 
-export default function Provider( { blockEditorSettings, ...props } ) {
+export default function Provider( {
+	blockEditorSettings,
+	patternId,
+	...props
+} ) {
 	const [ blocks, onInput, onChange ] = useEntityBlockEditor(
 		'postType',
 		'wp-pattern',
-		{ id: 5 }
+		{ id: patternId }
 	);
+	const { editBlockPattern } = useDispatch( 'wporg/block-pattern-creator' );
+	useEffect( () => {
+		editBlockPattern( patternId );
+	}, [ patternId ] );
 
 	return (
 		<div className="editor-styles-wrapper">
