@@ -1,3 +1,60 @@
+@import url(https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,600;0,700;1,400&display=swap);
+
+:root {
+	--default-font: sans-serif;
+	--editor-font: sans-serif;
+	--default-font-size: 14px;
+	--default-line-height: 1.9em;
+	--editor-font-size: 18px;
+	--inspector-width: 300px;
+	--sidebar-width: 300px;
+	--grid-unit: 16px;
+	--border-radius: 2px;
+	--button-height: 36px;
+	--logo-width: 100px;
+	--theme-color: #3858e9;
+	--theme-color-secondary: #f6e776;
+	--wp-admin-theme-color: var(--theme-color);
+	--wp-admin-theme-color-darker-10: #2145e6;
+	--wp-admin-theme-color-darker-20: #183ad6;
+	--border-color: #eee;
+	--background-color: #fff;
+	--link-color: var(--theme-color);
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	font-family: var(--default-font);
+	font-size: var(--default-font-size);
+	box-sizing: border-box;
+	height: 100%;
+	font-weight: 400;
+	line-height: var(--default-line-height);
+	-webkit-font-smoothing: antialiased;
+}
+
+a {
+	color: var(--link-color);
+}
+
+a,
+div {
+	outline: 0;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+fieldset {
+	border: none;
+	padding: 0;
+}
+
 #block-pattern-creator {
 	margin-left: auto;
 	margin-right: auto;
