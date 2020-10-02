@@ -10,7 +10,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-namespace Block_Plugin_Creator;
+namespace Block_Pattern_Creator;
 
 /**
  * Register the assets.
