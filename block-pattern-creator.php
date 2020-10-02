@@ -37,9 +37,7 @@ function init() {
 	wp_set_script_translations( 'block-pattern-creator-script', 'block-pattern-creator' );
 
 	$settings = array(
-		'imageSizes'        => array(),
-		'isRTL'             => is_rtl(),
-		'maxUploadFileSize' => 0,
+		'isRTL' => is_rtl(),
 		'__experimentalFeatures' => array(
 			'global' => array(
 				'typography' => array(
@@ -54,6 +52,7 @@ function init() {
 		sprintf(
 			'const wporgBlockPattern = {"settings": %1$s, "postId": %2$s}',
 			wp_json_encode( $settings ),
+			// @todo this could be pulled from the URL/query?
 			wp_json_encode( 5 )
 		),
 		'before'
