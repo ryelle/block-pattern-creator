@@ -18,7 +18,8 @@ namespace Block_Pattern_Creator;
  * @throws WP_Error If the build files don't exist.
  */
 function init() {
-	if ( is_admin() ) {
+	// Avoid adding this on admin pages, or if Gutenberg is inactive.
+	if ( is_admin() || ! function_exists( 'gutenberg_experimental_global_styles_get_merged_origins' ) ) {
 		return;
 	}
 
