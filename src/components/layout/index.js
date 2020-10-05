@@ -23,14 +23,14 @@ export default function Layout( { settings, postId } ) {
 		<Provider patternId={ patternId } blockEditorSettings={ settings }>
 			<div className={ classNames.join( ' ' ) }>
 				<Header
-					onOpenInspector={ () => setIsInspectorOpened( true ) }
+					onToggleInspector={ () =>
+						isInspectorOpened
+							? setIsInspectorOpened( false )
+							: setIsInspectorOpened( true )
+					}
 				/>
 				<Editor />
-				{ isInspectorOpened && (
-					<Inspector
-						onClose={ () => setIsInspectorOpened( false ) }
-					/>
-				) }
+				{ isInspectorOpened && <Inspector /> }
 			</div>
 		</Provider>
 	);

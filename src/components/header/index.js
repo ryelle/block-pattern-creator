@@ -3,7 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { Button } from '@wordpress/components';
-import { cog } from '@wordpress/icons';
+import { close, cog } from '@wordpress/icons';
 
 /**
  * Internal dependencies
@@ -11,7 +11,7 @@ import { cog } from '@wordpress/icons';
 import SaveButton from './save-button';
 import './style.css';
 
-export default function Header( { onOpenInspector } ) {
+export default function Header( { onToggleInspector } ) {
 	return (
 		<div className="block-pattern-creator__header">
 			<h1 className="block-pattern-creator__header-title">
@@ -21,8 +21,8 @@ export default function Header( { onOpenInspector } ) {
 				<SaveButton />
 				<Button
 					icon={ cog }
-					onClick={ onOpenInspector }
-					label="Open Inspector"
+					onClick={ onToggleInspector }
+					label="Toggle Inspector"
 				/>
 			</div>
 		</div>
