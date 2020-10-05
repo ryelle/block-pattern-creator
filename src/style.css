@@ -2,7 +2,6 @@
 	--default-font: sans-serif;
 	--editor-font: sans-serif;
 	--default-font-size: 14px;
-	--default-line-height: 1.9em;
 	--editor-font-size: 18px;
 	--inspector-width: 300px;
 	--grid-unit: 16px;
@@ -28,7 +27,6 @@ body {
 	box-sizing: border-box;
 	height: 100%;
 	font-weight: 400;
-	line-height: var(--default-line-height);
 	-webkit-font-smoothing: antialiased;
 }
 
