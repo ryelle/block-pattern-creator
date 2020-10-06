@@ -13,13 +13,21 @@
 namespace Block_Pattern_Creator;
 
 /**
- * Register the assets.
+ * Check the conditions of the page to determine if the editor should load.
+ *
+ * @return boolean
+ */
+function should_load_creator() {
+	return function_exists( 'gutenberg_experimental_global_styles_get_merged_origins' ) && \is_singular( 'wp-pattern' );
+}
+
+/**
+ * Register & load the assets.
  *
  * @throws WP_Error If the build files don't exist.
  */
-function init() {
-	// Avoid adding this on admin pages, or if Gutenberg is inactive.
-	if ( is_admin() || ! function_exists( 'gutenberg_experimental_global_styles_get_merged_origins' ) ) {
+function enqueue_assets() {
+	if ( ! should_load_creator() ) {
 		return;
 	}
 
@@ -52,8 +60,7 @@ function init() {
 		sprintf(
 			'const wporgBlockPattern = {"settings": %1$s, "postId": %2$s}',
 			wp_json_encode( $settings ),
-			// @todo this could be pulled from the URL/query?
-			wp_json_encode( 5 )
+			wp_json_encode( get_the_ID() )
 		),
 		'before'
 	);
@@ -77,13 +84,16 @@ function init() {
 	// @todo this will need to be adapted to whatever theme we use for wp.org
 	remove_action( 'wp_enqueue_scripts', 'twentytwenty_register_styles' );
 }
-add_action( 'init', __NAMESPACE__ . '\init' );
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 
 /**
  * Bypass WordPress template system to load only our editor app.
  */
 function inject_editor_template( $template ) {
 	// @todo do this conditionally on a page.
+	if ( ! should_load_creator() ) {
+		return $template;
+	}
 	return __DIR__ . '/view/editor.php';
 }
 add_filter( 'template_include', __NAMESPACE__ . '\inject_editor_template' );
